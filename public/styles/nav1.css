@@ -1,0 +1,24 @@
+nav .navbar-brand span.short {
+    display: none;
+}
+nav .navbar-brand img {
+    height:48px;
+}
+button[data-target="#changePasswordModal"]:hover {
+    background-color:#f8f9fa;
+    color:inherit;
+    outline: none;
+}
+@media (max-width: 992px) {
+    nav li a.btn{
+        margin-top: 16px;
+    }
+}
+@media (max-width: 530px) {
+    nav .navbar-brand span.short {
+        display: inline-block;
+    }
+    nav .navbar-brand span.long {
+        display: none;
+    }
+}

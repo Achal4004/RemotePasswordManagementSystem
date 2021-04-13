@@ -1,0 +1,42 @@
+<%- include ('./partial/head',{css_arr:["/styles/nav1.css","/styles/footer.css","/styles/home.css","/styles/table.css"]}) %>
+<%- include('./partial/nav2'),{email:email} %> 
+<main>
+    <%- include('./partial/changePasswordModal')%> 
+    <%- include('./partial/addNoteModal')%> 
+    <hr style="margin-top: 0;">
+    <div class="mt-2">
+        <a href="/" class="p1 mt-2 ml-3 " style="font-size: x-large;" >Password </a><span style="font-size: x-large;"> | </span>
+        <a href="#" class=" d1 mt-2 act" style="font-size: x-large;">Diary</a>
+        <button type="button" class="modalbtn btn btn-primary mr-5" style="float:right;" data-toggle="modal"data-target="#addNoteModal">Add Note</button><hr>
+    </div>
+    <% if (dlist.length==0) { %>
+     <div class="welcome">
+         <p>Welcome User</p><p>Add Passwords or Notes.</p>
+     </div>
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4"> Note Index</th>
+                </tr>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="45%">Heading</th>
+                    <th width="40%">Date</th>
+                    <th width="10%">Tools</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let index = dlist.length-1; index >=0; index-- ) { %>
+                    <tr>
+                        <td><%= dlist.length-index %>.</td>
+                        <td style="text-transform: capitalize;"><%=dlist[index].header%></td>
+                        <td><%=dlist[index].date.toString().substring(3, 16)%></td>
+                        <td><a href="/note/<%=dlist[index]._id%>" title="View"><i class="fa fa-eye"></i></a><a href="/delete/note/<%=dlist[index]._id%>" title="Delete"><i  class="fa fa-trash-o"></i></a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+</main>
+<%- include('./partial/footer') %>

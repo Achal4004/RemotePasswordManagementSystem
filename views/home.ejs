@@ -1,0 +1,48 @@
+<%- include ('./partial/head',{css_arr:["/styles/nav1.css","/styles/footer.css","/styles/home.css","/styles/table.css"]}) %>
+<%- include('./partial/nav2'),{email:email} %> 
+<main>
+    <%- include('./partial/changePasswordModal')%> 
+    <%- include('./partial/addPasswordModal')%>
+    <hr style="margin-top: 0;">
+    <div class="mt-2">
+        <a href="#" class="p1 mt-2 ml-3 act" style="font-size: x-large;" >Password </a><span style="font-size: x-large;"> | </span>
+        <a href="/diary" class=" d1 mt-2" style="font-size: x-large;">Diary</a>
+        <!-- Button trigger modal add password -->
+        <button type="button" class="modalbtn btn btn-primary mr-5" style="float:right;" data-toggle="modal" data-target="#addPasswordModal">Add Password</button><hr>
+    </div>
+    <div class="text-center"><%- include('./partial/flash') %></div>
+    <% if (plist.length==0) { %>
+        <div class="welcome">
+            <p>Welcome User</p><p>Add Passwords or Notes.</p>
+        </div>
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="5"> Password Index</th>
+                </tr>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="40%">Website/ URL</th>
+                    <th width="21%">User Name</th>
+                    <th width="21%">Password</th>
+                    <th width="10%">Tools</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let index = plist.length-1; index >=0; index-- ) { %>
+                    <tr>
+                        <td><%= plist.length-index %>.</td>
+                        <td><%=plist[index].website%></td>
+                        <td><%=plist[index].username%></td>
+                        <td>•••••••••••••</td>
+                        <td><a href="/password/<%=plist[index]._id%>" title="click to view password"><i class="fa fa-eye"></i></a><a href="/delete/password/<%=plist[index]._id%>" title="Delete"><i  class="fa fa-trash-o"></i></a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+     
+    
+</main>
+<%- include('./partial/footer') %>

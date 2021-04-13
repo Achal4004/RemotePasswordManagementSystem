@@ -1,0 +1,42 @@
+th,td {
+    padding:10px;
+    border-bottom:1px solid #aaa;
+}
+table {
+    margin:0 auto 8px;
+    border:2px solid #2f2f2f;
+    border-collapse: collapse;
+    width:90%;
+}
+thead {
+    border-bottom: 3px solid #aaa;
+    text-align: left;
+}
+thead tr:first-child {
+    text-align: center;
+    background-color: #2f2f2f;
+    color:white;
+}
+tr a {
+    text-decoration: none;
+    color:#888;
+}
+tr a:hover {
+    color:blue;
+}
+tr td i {
+    color:#888;
+    margin-right:8px;
+}
+tr td i:hover {
+    color:blue;
+}
+tbody tr:hover {
+    background-color: #eee;
+}
+tr td:first-child {
+    text-align: center ;
+}
+tr th:first-child {
+    text-align: center;
+}

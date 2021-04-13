@@ -1,0 +1,21 @@
+main {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+}
+@media(max-width: 1119px) {
+    main {
+        flex-direction: column;
+        width:100%;
+    }
+    main div{
+        padding: 24px 10%;
+        text-align: center;
+    }
+}
+@media(max-width:630px) {
+    main img {
+        width: 80%;
+    }
+}

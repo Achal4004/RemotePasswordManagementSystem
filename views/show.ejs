@@ -1,0 +1,32 @@
+<%- include ('./partial/head',{css_arr:["/styles/nav1.css","/styles/footer.css","/styles/home.css","/styles/show.css"]}) %>
+<%- include('./partial/nav2'),{email:email} %> 
+<main>
+    <%- include('./partial/changePasswordModal')%> 
+    <% if (type==="password") { %>
+        <div class="card password">
+            <div>
+                <h5>Website/ URL</h5>
+                <p>:&nbsp&nbsp<%=data.website%></p>
+            </div>
+            <div>
+                <h5>User Name</h5>
+                <p>:&nbsp&nbsp<%=data.username%></p>
+            </div>
+            <div>
+                <h5>Password</h5>
+                <p>:&nbsp&nbsp<%=data.password%></p>
+            </div>
+        </div>
+    <% } %>
+    <% if (type==='diary') { %>
+        <div class="diary">
+            <div>
+                <h1><%=data.header%></h1>
+                <p><%=data.date.toString().substring(4,16)%></p>
+            </div>
+            <p><%=data.content%></p>
+        </div> 
+    <% } %>
+    
+</main>
+<%- include('./partial/footer') %>
