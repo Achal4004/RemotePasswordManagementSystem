@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./options.css">
+    <title>RPMS</title>
+</head>
+<body>
+    <div class="main">
+        <div >
+        </div>
+        <div class="card welcome-card hide">
+            <h1>Welcome!</h1>
+            <p>To Use this extension, First you need to Add you RPMS account, Just press the button below</p>
+            <button class="show-form" id="button-1">Add Account</button>
+        </div>
+        <div class="card normal-card hide">
+            <h1>Account Info!</h1>
+            <h2>Email: <span id="show-email"></span></h2>
+            <h2>Password: <span id="show-password"></span></h2>
+            <button class="show-form" id="button-2">Change Account</button>
+        </div>
+        <div class="card form-card hide">
+            <h1>Add Account!</h1>
+            <form id='configuration-form' >
+                <label for="email">Email</label>
+                <input type="email" id="email" autofocus required><br>
+                <label for="password">Password</label>
+                <input type="password" id="password" required><br>
+                <button type="submit" >Register</button>
+            </form>
+        </div>
+        <div class='footer'>&copy 2021 Copyrights Reserved: RPMS.com</div>
+    </div>
+    <script src="./options.js"></script>
+</body>
+</html>

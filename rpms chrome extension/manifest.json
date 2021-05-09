@@ -1,0 +1,26 @@
+{
+  "name": "RPMS-Add password extension ",
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "This will help the user to add password at the time of login.",
+  "icons": {
+    "16": "./img/logo16.png",
+    "48": "./img/logo48.png",
+    "128":"./img/logo128.png"
+  },
+  "action": {
+    "default_title":"RPMS Password Uploader",
+    "default_popup":  "popup.html",
+    "default_icon":   "./img/logo16.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page":  "options.html",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications"
+  ]
+}

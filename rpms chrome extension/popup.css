@@ -1,0 +1,74 @@
+body {
+    width: 18rem;
+    font-weight: 700;
+    
+}
+div {
+    color:#292b2cce;
+}
+img {
+    width: 100%;
+}
+label {
+    font-size: smaller;
+    line-height: 24px;
+    width:68px;
+    opacity: 70%;
+}
+input {
+    width: 182px !important;
+    display: inline-block  !important;
+    height: 26px;
+    margin-top: 4px;
+    font-size: small !important;
+    padding:0px 8px !important;
+    align-items: center !important;
+    font-weight: 500 !important;
+    opacity: 85% !important;
+    line-height: 26px !important;
+}
+.card-body {
+    padding-top: 0px;
+}
+.submit-button {
+    position: relative;
+    height:28px;
+    width:fit-content;
+    text-align: center;
+    justify-content: center;
+    left:192px;
+    font-size: smaller;
+    padding:0 10px 2px;
+}
+.header {
+    opacity:75%;
+    margin-bottom: 16px;
+}
+#password {
+    width: 148px!important;
+}
+#visibility-toggler {
+    position:absolute;
+    width:16px; 
+    height: 10px;
+    right:26px;
+    bottom:123px;
+    opacity:70%;
+    cursor: pointer;
+    
+}
+#close-window {
+    position:absolute;
+    width: 12px;
+    top:12px;
+    right: 12px;
+    cursor: pointer;
+    opacity: 70%;
+}
+#close-window:hover {
+    opacity:85%;
+}
+.card-footer {
+    font-size: small;
+    opacity: 65%;
+}
