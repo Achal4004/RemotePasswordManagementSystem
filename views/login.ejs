@@ -1,7 +1,7 @@
 <%- include ('./partial/head',{css_arr:["/styles/nav1.css","/styles/footer.css","/styles/login.css",]}) %>
 <%- include('./partial/nav1',{show_login:false,show_register:true}) %> 
 <div class="text-center"><%- include('./partial/flash') %></div>
-<main class="text-center">
+<main class="text-center" style="background-color: rgb(186, 229, 229);">
     <form class="form-signin" action="/login/part1" method="POST">
       <img class="mb-2" src="./images/logo.png" alt="logo" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>

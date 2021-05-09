@@ -5,6 +5,7 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr(process.env.ENCRYPTION_KEY);
 const store=require('../models/store');
 const bcrypt=require('bcrypt');
+const { request } = require('express');
 const saltRounds=10;
 
 const checkAuth=function(req,res,next) {
@@ -47,7 +48,7 @@ router.post("/changePassword",checkAuth,(req,res)=>{
     userDetails.findOne({ email:req.user.email }, function (err, doc) {
         bcrypt.compare(opassword, doc.password, function(err, result) {
             if(!result) {
-                req.flash("error_msg","Old Password is Incorrect.");
+                req.flash("error_msg","Current Password is Incorrect.");
                 res.redirect('/');
             }
             else {
@@ -116,6 +117,34 @@ router.get('/note/:id',checkAuth,(req,res)=>{
             res.render('show',{email:req.user.email,type:'diary',data:data});
         else
             res.redirect('/diary');
+    });
+});
+
+router.post('/api/addPassword',(req,res)=> {
+    var {email,password,data}=req.body;
+    if(email==""||password=="") {
+        return res.json({message:"Cofiguration Pending "});
+    }
+    userDetails.findOne({ email:email }, function (err, doc) {
+        if(!doc)    {
+            return res.json({message:"Email not registered"});
+        }
+        bcrypt.compare(password, doc.password, function(err, result) {
+            if(!result) {
+                return res.json({message:"Incorrect Password"});
+            }
+            else {
+                console.log(data);
+                var {website,username,password}=data;
+                if(website!=""&&username!=""&&data!="") {
+                    store.password({email:email,website:website,username:username,password:cryptr.encrypt(password)}).save((err,data)=>{if(err) throw err;});
+                    return res.json({message:"Password Sucessfully Added."});
+                }
+                else {
+                    return res.json({message:"required Fields are empty"});
+                }
+            }
+        });
     });
 });
 

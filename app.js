@@ -12,8 +12,12 @@ const forgetRoute=require('./routes/forgetRoute');
 
 const app=express();
 
+const cors=require('cors');
+app.use(cors());
+
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 app.use(express.static("public"));
 app.use(cookieParser(process.env.SESSION_COOKIES_SECRET_KEY));
 app.use(session({ secret: process.env.SESSION_COOKIES_SECRET_KEY,resave: false,saveUninitialized: false,}));
@@ -44,7 +48,6 @@ app.use('/',homeRoute);
 app.use('/register',registerRoute);
 app.use('/login',loginRoute);
 app.use('/forget',forgetRoute);
-
 app.all('*',(req,res)=> {
     res.render('error404');
 });

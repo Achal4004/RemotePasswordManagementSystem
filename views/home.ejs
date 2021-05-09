@@ -1,6 +1,6 @@
 <%- include ('./partial/head',{css_arr:["/styles/nav1.css","/styles/footer.css","/styles/home.css","/styles/table.css"]}) %>
 <%- include('./partial/nav2'),{email:email} %> 
-<main>
+<main >
     <%- include('./partial/changePasswordModal')%> 
     <%- include('./partial/addPasswordModal')%>
     <hr style="margin-top: 0;">
@@ -10,9 +10,9 @@
         <!-- Button trigger modal add password -->
         <button type="button" class="modalbtn btn btn-primary mr-5" style="float:right;" data-toggle="modal" data-target="#addPasswordModal">Add Password</button><hr>
     </div>
-    <div class="text-center"><%- include('./partial/flash') %></div>
+    <div class="text-center" ><%- include('./partial/flash') %></div>
     <% if (plist.length==0) { %>
-        <div class="welcome">
+        <div class="welcome" >
             <p>Welcome User</p><p>Add Passwords or Notes.</p>
         </div>
     <% } else { %>
@@ -45,4 +45,4 @@
      
     
 </main>
-<%- include('./partial/footer') %>
+<%- include('./partial/footer')  %>
